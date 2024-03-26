@@ -8,14 +8,14 @@
  */
 int tree_is_perfect(const binary_tree_t *tree)
 {
-	int l = 0, r = 0;
+	int left_node = 0, right_node = 0;
 
 	if (tree->left && tree->right)
 	{
-		l = 1 + tree_is_perfect(tree->left);
-		r = 1 + tree_is_perfect(tree->right);
-		if (r == l && r != 0 && l != 0)
-			return (r);
+		left_node = 1 + tree_is_perfect(tree->left);
+		right_node = 1 + tree_is_perfect(tree->right);
+		if (right_node == left_node && right_node != 0 && left_node != 0)
+			return (right_node);
 		return (0);
 	}
 	else if (!tree->left && !tree->right)
